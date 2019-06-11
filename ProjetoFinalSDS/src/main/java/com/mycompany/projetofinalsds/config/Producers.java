@@ -11,7 +11,7 @@ import javax.persistence.PersistenceContext;
 
 /**
  *
- * @author raul
+ * @author Thanyla
  */
 public class Producers {
 

@@ -10,7 +10,7 @@ import javax.persistence.OneToMany;
 
 /**
  *
- * @author raul
+ * @author Thanyla
  */
 @Entity
 public class Estado implements Cadastro, Serializable {

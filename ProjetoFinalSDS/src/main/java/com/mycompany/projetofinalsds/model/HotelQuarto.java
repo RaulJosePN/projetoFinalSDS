@@ -9,7 +9,7 @@ import javax.persistence.ManyToOne;
 
 /**
  *
- * @author raul
+ * @author Thanyla
  */
 @Entity
 public class HotelQuarto implements Cadastro, Serializable {

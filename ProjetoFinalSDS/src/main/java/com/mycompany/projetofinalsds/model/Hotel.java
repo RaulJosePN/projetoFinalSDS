@@ -11,7 +11,7 @@ import javax.persistence.OneToMany;
 
 /**
  *
- * @author raul
+ * @author Thanyla
  */
 @Entity
 public class Hotel implements Cadastro, Serializable {

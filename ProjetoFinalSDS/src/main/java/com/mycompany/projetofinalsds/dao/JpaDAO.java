@@ -11,7 +11,7 @@ import javax.persistence.TypedQuery;
 
 /**
  *
- * @author raul
+ * @author Thanyla
  * @param <T>
  */
 public class JpaDAO<T extends Cadastro> implements DAO<T> {
