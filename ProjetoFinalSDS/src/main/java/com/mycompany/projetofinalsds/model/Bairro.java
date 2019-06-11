@@ -1,11 +1,13 @@
 package com.mycompany.projetofinalsds.model;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -20,16 +22,11 @@ public class Bairro implements Cadastro, Serializable {
 
     private String nome;
 
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
     @ManyToOne
     private Cidade cidade;
+
+    @OneToMany(mappedBy = "bairro")
+    private List<Hotel> hoteis;
 
     @Override
     public long getId() {
@@ -49,4 +46,19 @@ public class Bairro implements Cadastro, Serializable {
         this.cidade = cidade;
     }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public List<Hotel> getHoteis() {
+        return hoteis;
+    }
+
+    public void setHoteis(List<Hotel> hoteis) {
+        this.hoteis = hoteis;
+    }
 }

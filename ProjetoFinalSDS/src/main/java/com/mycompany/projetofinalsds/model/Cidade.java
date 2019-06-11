@@ -19,6 +19,9 @@ public class Cidade implements Cadastro, Serializable{
     
     private String nome;
     
+    @OneToMany(mappedBy = "cidade")
+    private List<Bairro> bairros;
+    
     @ManyToOne
     private Estado estado;
     
@@ -57,6 +60,14 @@ public class Cidade implements Cadastro, Serializable{
 
     public void setHoteis(List<Hotel> hoteis) {
         this.hoteis = hoteis;
+    }
+
+    public List<Bairro> getBairros() {
+        return bairros;
+    }
+
+    public void setBairros(List<Bairro> bairros) {
+        this.bairros = bairros;
     }
     
 }
