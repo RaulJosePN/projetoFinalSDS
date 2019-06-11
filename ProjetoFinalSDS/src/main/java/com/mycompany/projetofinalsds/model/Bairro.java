@@ -13,11 +13,21 @@ import javax.persistence.ManyToOne;
  */
 @Entity
 public class Bairro implements Cadastro, Serializable {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    
+
+    private String nome;
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
     @ManyToOne
     private Cidade cidade;
 
@@ -38,5 +48,5 @@ public class Bairro implements Cadastro, Serializable {
     public void setCidade(Cidade cidade) {
         this.cidade = cidade;
     }
-    
+
 }

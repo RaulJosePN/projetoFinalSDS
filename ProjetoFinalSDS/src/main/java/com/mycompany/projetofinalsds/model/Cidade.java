@@ -1,9 +1,11 @@
 package com.mycompany.projetofinalsds.model;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -19,6 +21,9 @@ public class Cidade implements Cadastro, Serializable{
     
     @ManyToOne
     private Estado estado;
+    
+    @OneToMany
+    private List<Hotel> hoteis;
     
     @Override
     public long getId() {
@@ -44,6 +49,14 @@ public class Cidade implements Cadastro, Serializable{
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public List<Hotel> getHoteis() {
+        return hoteis;
+    }
+
+    public void setHoteis(List<Hotel> hoteis) {
+        this.hoteis = hoteis;
     }
     
 }

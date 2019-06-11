@@ -1,8 +1,3 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 /**
  * Author:  raul
  * Created: 10/06/2019
@@ -5604,3 +5599,17 @@ INSERT INTO Cidade (id, nome, estado_id) VALUES
 (5562, 'Tupiratins', 27),
 (5563, 'Wanderlândia', 27),
 (5564, 'Xambioá', 27);
+
+
+INSERT INTO Bairro (id, nome, cidade_id) VALUES
+(1, 'Aurenny I', 5514),
+(2, 'Aurenny II', 5514),
+(3, 'Aurenny III', 5514),
+(4, 'Taquaralto', 5514);
+
+INSERT INTO Hotel (id, nome, bairro_id) VALUES
+(1, 'Mob Choir', 1),
+(2, 'Tenshi no Thesis', 2),
+(3, 'Impact', 3),
+(4, 'Howling', 4);
+
