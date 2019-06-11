@@ -2,7 +2,7 @@ package com.mycompany.projetofinalsds.model;
 
 /**
  *
- * @author Thanyla
+ * @author raul
  */
 public interface Cadastro {
 

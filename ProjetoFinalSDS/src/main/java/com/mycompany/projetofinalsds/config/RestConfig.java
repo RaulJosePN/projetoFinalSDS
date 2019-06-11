@@ -5,7 +5,7 @@ import javax.ws.rs.core.Application;
 
 /**
  *
- * @author Thanyla
+ * @author raul
  */
 @ApplicationPath("api")
 public class RestConfig extends Application{

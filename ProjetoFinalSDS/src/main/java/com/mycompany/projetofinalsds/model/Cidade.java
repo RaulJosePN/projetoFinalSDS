@@ -9,7 +9,7 @@ import javax.persistence.OneToMany;
 
 /**
  *
- * @author Thanyla
+ * @author raul
  */
 @Entity
 public class Cidade implements Cadastro, Serializable{

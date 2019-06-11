@@ -4,7 +4,7 @@ import com.mycompany.projetofinalsds.model.Cadastro;
 
 /**
  *
- * @author Thanyla
+ * @author raul
  * @param <T>
  */
 public interface DAO< T extends Cadastro> {
