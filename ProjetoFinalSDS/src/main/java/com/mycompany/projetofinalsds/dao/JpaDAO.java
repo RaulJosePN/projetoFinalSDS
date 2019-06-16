@@ -5,7 +5,11 @@
  */
 package com.mycompany.projetofinalsds.dao;
 
+import com.mycompany.projetofinalsds.model.Bairro;
 import com.mycompany.projetofinalsds.model.Cadastro;
+import com.mycompany.projetofinalsds.model.Cidade;
+import com.mycompany.projetofinalsds.model.Hotel;
+import com.mycompany.projetofinalsds.model.HotelQuarto;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
@@ -30,6 +34,17 @@ public class JpaDAO<T extends Cadastro> implements DAO<T> {
     }
 
     @Override
+    public boolean remove(T entity) {
+        em.remove(entity);
+        return true;
+    }
+
+    @Override
+    public void save(T entity) {
+        em.persist(entity);
+    }
+
+    @Override
     public T findByField(String fieldName, Object value) {
         final String jpql = "select o from " + classe.getSimpleName() + " o "
                 + "where o." + fieldName + " =: " + fieldName;
@@ -39,14 +54,18 @@ public class JpaDAO<T extends Cadastro> implements DAO<T> {
     }
 
     @Override
-    public boolean remove(T entity) {
-        em.remove(entity);
-        return true;
+    public Hotel findByField(Cidade cidade) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void save(T entity) {
-        em.persist(entity);
+    public Hotel findByField(Cidade cidade, Bairro bairro) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Hotel findByField(Cidade cidade, HotelQuarto quarto) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

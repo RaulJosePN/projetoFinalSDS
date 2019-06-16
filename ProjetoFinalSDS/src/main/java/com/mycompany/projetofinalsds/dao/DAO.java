@@ -1,6 +1,10 @@
 package com.mycompany.projetofinalsds.dao;
 
+import com.mycompany.projetofinalsds.model.Bairro;
 import com.mycompany.projetofinalsds.model.Cadastro;
+import com.mycompany.projetofinalsds.model.Cidade;
+import com.mycompany.projetofinalsds.model.Hotel;
+import com.mycompany.projetofinalsds.model.HotelQuarto;
 
 /**
  *
@@ -16,4 +20,11 @@ public interface DAO< T extends Cadastro> {
     boolean remove(T entity);
     
     void save(T entity);
+
+    //Criado Automaticamente
+    public Hotel findByField(Cidade cidade);
+
+    public Hotel findByField(Cidade cidade, Bairro bairro);
+
+    public Hotel findByField(Cidade cidade, HotelQuarto quarto);
 }
