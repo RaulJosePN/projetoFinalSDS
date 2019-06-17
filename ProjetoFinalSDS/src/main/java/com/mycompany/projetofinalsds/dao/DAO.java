@@ -1,7 +1,6 @@
 package com.mycompany.projetofinalsds.dao;
 
 import com.mycompany.projetofinalsds.model.Cadastro;
-import com.mycompany.projetofinalsds.model.Hotel;
 
 /**
  *
