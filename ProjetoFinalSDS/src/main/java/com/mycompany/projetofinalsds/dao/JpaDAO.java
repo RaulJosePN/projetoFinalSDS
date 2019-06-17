@@ -54,17 +54,12 @@ public class JpaDAO<T extends Cadastro> implements DAO<T> {
     }
 
     @Override
-    public Hotel findByField(Cidade cidade) {
+    public Hotel findByField(long id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Hotel findByField(Cidade cidade, Bairro bairro) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Hotel findByField(Cidade cidade, HotelQuarto quarto) {
+    public Hotel findByField(long id, long id0) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

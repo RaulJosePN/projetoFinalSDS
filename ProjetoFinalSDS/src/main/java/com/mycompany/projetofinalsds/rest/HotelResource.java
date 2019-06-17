@@ -26,20 +26,20 @@ public class HotelResource {
     @Path("{cidade}")
     @Produces(MediaType.APPLICATION_JSON)
     public Hotel buscarHotelPorCidade(@PathParam("cidade") Cidade cidade){
-        return dao.findByField(cidade);
+        return dao.findByField(cidade.getId());
     }
     
     
     @GET
-    @Path("{cidade},{bairro}")
+    @Path("{cidade}/{bairro}")
     @Produces(MediaType.APPLICATION_JSON)
     public Hotel buscarHotelPorBairroDeCidade(@PathParam("cidade") Cidade cidade, @PathParam("bairro") Bairro bairro){
-        return dao.findByField(cidade, bairro);
+        return dao.findByField(cidade.getId(), bairro.getId());
     }
     
     
     @GET
-    @Path("{cidade},{quarto}")
+    @Path("{cidade}/{quarto}")
     public Hotel buscarHotelPorCidadePrecoCamas(@PathParam("cidade") Cidade cidade, @PathParam("quartoHotel") HotelQuarto quarto){
         return dao.findByField(cidade, quarto);
     }

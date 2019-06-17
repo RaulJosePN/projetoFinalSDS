@@ -22,9 +22,7 @@ public interface DAO< T extends Cadastro> {
     void save(T entity);
 
     //Criado Automaticamente
-    public Hotel findByField(Cidade cidade);
+    public Hotel findByField(long id);
 
-    public Hotel findByField(Cidade cidade, Bairro bairro);
-
-    public Hotel findByField(Cidade cidade, HotelQuarto quarto);
+    public Hotel findByField(long id, long id0);
 }
