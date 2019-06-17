@@ -29,14 +29,15 @@ public class HotelQuartoResource {
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     public void update(HotelQuarto quarto) {
-        HotelQuarto quartoBuscado = dao.findById(quarto.getId());
-        dao.save(quartoBuscado);
+        dao.save(quarto);
     }
 
     @DELETE
+    @Path("{id}")
     @Consumes(MediaType.APPLICATION_JSON)
-    public boolean delete(HotelQuarto quarto) {
-        return dao.remove(quarto);
+    public boolean delete(long id) {
+        return dao.remove(id);
     }
+
 
 }

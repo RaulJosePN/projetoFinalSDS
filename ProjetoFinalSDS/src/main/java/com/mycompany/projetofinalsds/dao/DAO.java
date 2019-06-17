@@ -1,10 +1,7 @@
 package com.mycompany.projetofinalsds.dao;
 
-import com.mycompany.projetofinalsds.model.Bairro;
 import com.mycompany.projetofinalsds.model.Cadastro;
-import com.mycompany.projetofinalsds.model.Cidade;
 import com.mycompany.projetofinalsds.model.Hotel;
-import com.mycompany.projetofinalsds.model.HotelQuarto;
 
 /**
  *
@@ -25,4 +22,6 @@ public interface DAO< T extends Cadastro> {
     public Hotel findByField(long id);
 
     public Hotel findByField(long id, long id0);
+
+    public boolean remove(long id);
 }

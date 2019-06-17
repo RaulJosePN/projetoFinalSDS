@@ -41,7 +41,7 @@ public class HotelResource {
     @GET
     @Path("{cidade}/{quarto}")
     public Hotel buscarHotelPorCidadePrecoCamas(@PathParam("cidade") Cidade cidade, @PathParam("quartoHotel") HotelQuarto quarto){
-        return dao.findByField(cidade, quarto);
+        return dao.findByField(cidade.getId(), quarto.getId());
     }
     
 }
