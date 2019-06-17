@@ -4,6 +4,7 @@
     <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
     <jta-data-source>java:app/projetoSD</jta-data-source>
     <properties>
+      <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>         
       <property name="hibernate.transaction.jta.platform" value="org.hibernate.service.jta.platform.internal.SunOneJtaPlatform"/>
       <property name="javax.persistence.sql-load-script-source" value="META-INF/insert.sql"/>
       <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>

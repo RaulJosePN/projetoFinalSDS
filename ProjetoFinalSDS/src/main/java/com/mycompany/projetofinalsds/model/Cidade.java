@@ -1,8 +1,10 @@
 package com.mycompany.projetofinalsds.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -22,14 +24,12 @@ public class Cidade implements Cadastro, Serializable{
     
     private String nome;
     
-    @OneToMany(mappedBy = "cidade")
+    @OneToMany(mappedBy = "cidade", fetch = FetchType.EAGER)
     private List<Bairro> bairros;
     
     @ManyToOne
     private Estado estado;
     
-    @OneToMany
-    private List<Hotel> hoteis;
     
     @Override
     public long getId() {
@@ -55,18 +55,6 @@ public class Cidade implements Cadastro, Serializable{
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public List<Hotel> getHoteis() {
-        return hoteis;
-    }
-
-    public void setHoteis(List<Hotel> hoteis) {
-        this.hoteis = hoteis;
-    }
-
-    public List<Bairro> getBairros() {
-        return bairros;
     }
 
     public void setBairros(List<Bairro> bairros) {

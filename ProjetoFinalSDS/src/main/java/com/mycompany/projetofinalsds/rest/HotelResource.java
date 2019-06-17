@@ -1,10 +1,12 @@
 package com.mycompany.projetofinalsds.rest;
 
 import com.mycompany.projetofinalsds.dao.DAO;
+import com.mycompany.projetofinalsds.dao.HotelDAO;
 import com.mycompany.projetofinalsds.model.Bairro;
 import com.mycompany.projetofinalsds.model.Cidade;
 import com.mycompany.projetofinalsds.model.Hotel;
 import com.mycompany.projetofinalsds.model.HotelQuarto;
+import java.util.List;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -20,28 +22,28 @@ import javax.ws.rs.core.MediaType;
 public class HotelResource {
 
     @Inject
-    private DAO<Hotel> dao;
+    private HotelDAO dao;
 
     @GET
-    @Path("{cidade}")
+    @Path("{idCidade}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Hotel buscarHotelPorCidade(@PathParam("cidade") Cidade cidade){
-        return dao.findByField(cidade.getId());
+    public List<Hotel> findByCidade(@PathParam("idCidade") long idCidade){
+        return dao.findByCidade(idCidade);
     }
     
     
     @GET
-    @Path("{cidade}/{bairro}")
+    @Path("{idCidade}/{idBairro}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Hotel buscarHotelPorBairroDeCidade(@PathParam("cidade") Cidade cidade, @PathParam("bairro") Bairro bairro){
-        return dao.findByField(cidade.getId(), bairro.getId());
+    public Hotel findByCidadeBairro(@PathParam("idCidade") long idCidade, @PathParam("idBairro") long idBairro){
+        return dao.findByCidadeBairro(idCidade, idBairro);
     }
     
-    
+    /*
     @GET
     @Path("{cidade}/{quarto}")
     public Hotel buscarHotelPorCidadePrecoCamas(@PathParam("cidade") Cidade cidade, @PathParam("quartoHotel") HotelQuarto quarto){
-        return dao.findByField(cidade.getId(), quarto.getId());
-    }
+        return dao.(cidade.getId(), quarto.getId());
+    }*/
     
 }

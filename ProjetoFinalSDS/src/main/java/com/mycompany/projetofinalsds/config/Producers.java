@@ -1,6 +1,7 @@
 package com.mycompany.projetofinalsds.config;
 
 import com.mycompany.projetofinalsds.dao.DAO;
+import com.mycompany.projetofinalsds.dao.HotelDAO;
 import com.mycompany.projetofinalsds.dao.JpaDAO;
 import com.mycompany.projetofinalsds.model.Cadastro;
 import java.lang.reflect.ParameterizedType;
@@ -24,6 +25,11 @@ public class Producers {
         ParameterizedType t = (ParameterizedType) ip.getType();
         Class classe = (Class) t.getActualTypeArguments()[0];
         return new JpaDAO(em, classe);
+    }
+
+    @Produces
+    public HotelDAO getHotelDao(InjectionPoint ip){
+        return new HotelDAO(em);
     }
     
 }

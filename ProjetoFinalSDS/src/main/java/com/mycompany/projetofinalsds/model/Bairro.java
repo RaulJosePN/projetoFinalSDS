@@ -3,6 +3,7 @@ package com.mycompany.projetofinalsds.model;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -24,8 +25,9 @@ public class Bairro implements Cadastro, Serializable {
 
     @ManyToOne
     private Cidade cidade;
+        
 
-    @OneToMany(mappedBy = "bairro")
+    @OneToMany(mappedBy = "bairro", fetch = FetchType.EAGER)
     private List<Hotel> hoteis;
 
     @Override
@@ -54,9 +56,6 @@ public class Bairro implements Cadastro, Serializable {
         this.nome = nome;
     }
 
-    public List<Hotel> getHoteis() {
-        return hoteis;
-    }
 
     public void setHoteis(List<Hotel> hoteis) {
         this.hoteis = hoteis;

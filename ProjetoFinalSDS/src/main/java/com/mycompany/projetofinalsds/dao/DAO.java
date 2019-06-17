@@ -18,10 +18,5 @@ public interface DAO< T extends Cadastro> {
     
     void save(T entity);
 
-    //Criado Automaticamente
-    public Hotel findByField(long id);
-
-    public Hotel findByField(long id, long id0);
-
     public boolean remove(long id);
 }

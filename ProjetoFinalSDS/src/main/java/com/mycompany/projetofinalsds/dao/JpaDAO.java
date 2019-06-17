@@ -5,11 +5,7 @@
  */
 package com.mycompany.projetofinalsds.dao;
 
-import com.mycompany.projetofinalsds.model.Bairro;
 import com.mycompany.projetofinalsds.model.Cadastro;
-import com.mycompany.projetofinalsds.model.Cidade;
-import com.mycompany.projetofinalsds.model.Hotel;
-import com.mycompany.projetofinalsds.model.HotelQuarto;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
@@ -34,12 +30,6 @@ public class JpaDAO<T extends Cadastro> implements DAO<T> {
     }
 
     @Override
-    public boolean remove(T entity) {
-        em.remove(entity);
-        return true;
-    }
-
-    @Override
     public void save(T entity) {
         em.persist(entity);
     }
@@ -53,19 +43,24 @@ public class JpaDAO<T extends Cadastro> implements DAO<T> {
         return query.getSingleResult();
     }
 
-    @Override
-    public Hotel findByField(long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Hotel findByField(long id, long id0) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
     @Override
     public boolean remove(long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        T entity = findById(id);
+        return remove(entity);
+    }
+
+    @Override
+    public boolean remove(T entity) {
+        em.remove(entity);
+        return true;
+    }
+
+    /**
+     * @return the em
+     */
+    public EntityManager getEm() {
+        return em;
     }
 
 }

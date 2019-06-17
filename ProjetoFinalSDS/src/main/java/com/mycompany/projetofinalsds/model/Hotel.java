@@ -3,6 +3,7 @@ package com.mycompany.projetofinalsds.model;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -25,7 +26,7 @@ public class Hotel implements Cadastro, Serializable {
     @ManyToOne
     private Bairro bairro;
     
-    @OneToMany(mappedBy = "hotel")
+    @OneToMany(mappedBy = "hotel", fetch = FetchType.EAGER)
     private List<HotelQuarto> quartosDeHotel;
 
     @Override
@@ -37,7 +38,7 @@ public class Hotel implements Cadastro, Serializable {
     public void setId(long id) {
         this.id = id;
     }
-
+    
     public String getNome() {
         return nome;
     }
@@ -54,11 +55,8 @@ public class Hotel implements Cadastro, Serializable {
         this.bairro = bairro;
     }
 
-    public List<HotelQuarto> getQuartosDeHotel() {
-        return quartosDeHotel;
-    }
-
     public void setQuartosDeHotel(List<HotelQuarto> quartosDeHotel) {
         this.quartosDeHotel = quartosDeHotel;
     }
+
 }
