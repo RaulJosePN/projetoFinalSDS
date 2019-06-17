@@ -1,10 +1,12 @@
 package model;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -18,6 +20,9 @@ public class Piloto implements Cadastro, Serializable {
     private long id;
     
     private String nome;
+    
+    @OneToMany(mappedBy = "piloto")
+    private List <Voo> voos;
 
     @Override
     public long getId() {
@@ -35,6 +40,10 @@ public class Piloto implements Cadastro, Serializable {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public void setVoos(List <Voo> voos) {
+        this.voos = voos;
     }
     
 }

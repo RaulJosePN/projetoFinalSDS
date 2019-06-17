@@ -39,5 +39,4 @@ public class HotelQuartoResource {
         return dao.remove(id);
     }
 
-
 }

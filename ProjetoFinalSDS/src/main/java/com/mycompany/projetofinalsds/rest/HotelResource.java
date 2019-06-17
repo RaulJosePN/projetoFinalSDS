@@ -1,11 +1,7 @@
 package com.mycompany.projetofinalsds.rest;
 
-import com.mycompany.projetofinalsds.dao.DAO;
 import com.mycompany.projetofinalsds.dao.HotelDAO;
-import com.mycompany.projetofinalsds.model.Bairro;
-import com.mycompany.projetofinalsds.model.Cidade;
 import com.mycompany.projetofinalsds.model.Hotel;
-import com.mycompany.projetofinalsds.model.HotelQuarto;
 import java.util.List;
 import javax.inject.Inject;
 import javax.ws.rs.GET;

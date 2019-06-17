@@ -1,11 +1,13 @@
 package model;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -13,12 +15,18 @@ import javax.persistence.ManyToOne;
  */
 @Entity
 public class Cidade implements Cadastro, Serializable {
-
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    
+
     private String nome;
+
+    @OneToMany(mappedBy = "cidadeOrigem")
+    private List<Voo> voosPartindo;
+    
+    @OneToMany(mappedBy = "cidadeDestino")
+    private List<Voo> voosChegando;
     
     @ManyToOne
     private Estado estado;
@@ -48,5 +56,13 @@ public class Cidade implements Cadastro, Serializable {
     public void setEstado(Estado estado) {
         this.estado = estado;
     }
-    
+
+    public void setVoosPartindo(List<Voo> voosPartindo) {
+        this.voosPartindo = voosPartindo;
+    }
+
+    public void setVoosChegando(List<Voo> voosChegando) {
+        this.voosChegando = voosChegando;
+    }
+
 }
