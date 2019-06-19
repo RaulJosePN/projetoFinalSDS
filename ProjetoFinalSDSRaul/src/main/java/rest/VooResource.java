@@ -1,12 +1,17 @@
 package rest;
 
 import dao.DAO;
+import dao.VooDAO;
+import java.util.List;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import model.Voo;
 
@@ -19,6 +24,9 @@ public class VooResource {
 
     @Inject
     private DAO<Voo> dao;
+
+    @Inject
+    private VooDAO vDAO;
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
@@ -39,4 +47,24 @@ public class VooResource {
         return dao.remove(voo);
     }
 
+    @GET
+    @Path("{idCidadeO}/{idCidadeD}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Voo> findByCidadeOrigemDestino(@PathParam("idCidadeO") long idCidadeO, @PathParam("idCidadeD") long idCidadeD) {
+        return vDAO.findByCidadeOrigemDestino(idCidadeO, idCidadeD);
+    }
+
+    @GET
+    @Path("{idCidadeO}/{idCidadeD}/{data}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Voo> findByCidadeOrigemDestinoData(@PathParam("idCidadeO") long idCidadeO, @PathParam("idCidadeD") long idCidadeD, @PathParam("data") String data) {
+        return vDAO.findByCidadeOrigemDestinoData(idCidadeO, idCidadeD, data);
+    }
+
+    @GET
+    @Path("{idCidadeO}/{idCidadeD}/{data}/{preco}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Voo> findByCidadeOrigemDestinoDataPreco(@PathParam("idCidadeO") long idCidadeO, @PathParam("idCidadeD") long idCidadeD, @PathParam("data") String data, @PathParam("preco") double preco) {
+        return vDAO.findByCidadeOrigemDestinoDataPreco(idCidadeO, idCidadeD, data, preco);
+    }
 }

@@ -3,6 +3,7 @@ package model;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -21,7 +22,7 @@ public class Aviao implements Cadastro, Serializable {
     
     private int qtdPassageiros;
     
-    @OneToMany(mappedBy = "aviao")
+    @OneToMany(mappedBy = "aviao", fetch = FetchType.EAGER)
     private List<Voo> voos;
 
     @Override

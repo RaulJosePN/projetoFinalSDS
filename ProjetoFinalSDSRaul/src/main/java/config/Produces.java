@@ -2,6 +2,7 @@ package config;
 
 import dao.DAO;
 import dao.JpaDAO;
+import dao.VooDAO;
 import java.lang.reflect.ParameterizedType;
 import javax.enterprise.inject.spi.InjectionPoint;
 import javax.persistence.EntityManager;
@@ -25,4 +26,9 @@ public class Produces {
         return new JpaDAO(em, classe);
     }
 
+    @javax.enterprise.inject.Produces
+    public VooDAO getVooDAO(InjectionPoint ip){
+        return new VooDAO(em);
+    }
+    
 }

@@ -17,6 +17,8 @@ import javax.persistence.OneToMany;
 @Entity
 public class Bairro implements Cadastro, Serializable {
 
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
