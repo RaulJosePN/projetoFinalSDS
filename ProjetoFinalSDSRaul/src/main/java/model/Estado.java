@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 
 /**
  *
@@ -17,7 +18,8 @@ import javax.persistence.OneToMany;
 public class Estado implements Cadastro, Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "estado_gen")
+    @SequenceGenerator(name = "estado_gen", sequenceName = "estado_seq", initialValue = 1)
     private long id;
 
     private String nome;

@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 
 /**
  *
@@ -18,7 +19,8 @@ import javax.persistence.OneToMany;
 public class Cidade implements Cadastro, Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "cidade_gen")
+    @SequenceGenerator(name = "cidade_gen", sequenceName = "cidade_seq", initialValue = 1)
     private long id;
 
     private String nome;

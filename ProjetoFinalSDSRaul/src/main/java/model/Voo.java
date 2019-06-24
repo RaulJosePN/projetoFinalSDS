@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 
 /**
  *
@@ -21,7 +22,8 @@ public class Voo implements Cadastro, Serializable {
     private Cidade cidadeOrigem;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "voo_gen")
+    @SequenceGenerator(name = "voo_gen", sequenceName = "voo_seq", initialValue = 1)
     long id;
 
     @ManyToOne
