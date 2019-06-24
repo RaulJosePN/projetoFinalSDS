@@ -22,11 +22,9 @@ import model.Voo;
 @Path("/voo")
 public class VooResource {
 
-    @Inject
-    private DAO<Voo> dao;
 
     @Inject
-    private VooDAO vDAO;
+    private VooDAO dao;
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
@@ -51,20 +49,20 @@ public class VooResource {
     @Path("{idCidadeO}/{idCidadeD}")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Voo> findByCidadeOrigemDestino(@PathParam("idCidadeO") long idCidadeO, @PathParam("idCidadeD") long idCidadeD) {
-        return vDAO.findByCidadeOrigemDestino(idCidadeO, idCidadeD);
+        return dao.findByCidadeOrigemDestino(idCidadeO, idCidadeD);
     }
 
     @GET
     @Path("{idCidadeO}/{idCidadeD}/{data}")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Voo> findByCidadeOrigemDestinoData(@PathParam("idCidadeO") long idCidadeO, @PathParam("idCidadeD") long idCidadeD, @PathParam("data") String data) {
-        return vDAO.findByCidadeOrigemDestinoData(idCidadeO, idCidadeD, data);
+        return dao.findByCidadeOrigemDestinoData(idCidadeO, idCidadeD, data);
     }
 
     @GET
     @Path("{idCidadeO}/{idCidadeD}/{data}/{preco}")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Voo> findByCidadeOrigemDestinoDataPreco(@PathParam("idCidadeO") long idCidadeO, @PathParam("idCidadeD") long idCidadeD, @PathParam("data") String data, @PathParam("preco") double preco) {
-        return vDAO.findByCidadeOrigemDestinoDataPreco(idCidadeO, idCidadeD, data, preco);
+        return dao.findByCidadeOrigemDestinoDataPreco(idCidadeO, idCidadeD, data, preco);
     }
 }
