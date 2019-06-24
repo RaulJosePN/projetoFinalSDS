@@ -18,3 +18,4 @@ INSERT INTO hotel (id, nome, bairro_id) VALUES (2, 'Tenshi no Thesis', 2);
 INSERT INTO hotel (id, nome, bairro_id) VALUES (3, 'Impact', 3);
 INSERT INTO hotel (id, nome, bairro_id) VALUES (4, 'Howling', 4);
 
+INSERT INTO hotelquarto (quartoNum, andar, totalCamas, preco, hotel_id) VALUES ( 1, 1, 1, 150, 1);

@@ -26,7 +26,9 @@ public class JpaDAO<T extends Cadastro> implements DAO<T> {
 
     @Override
     public void save(T entity) {
+        if(entity.getId()==0){
         em.persist(entity);
+        }else em.merge(entity);
     }
 
     @Override
