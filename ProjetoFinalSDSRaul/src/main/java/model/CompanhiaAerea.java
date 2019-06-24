@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 
 /**
  *
@@ -17,7 +18,8 @@ import javax.persistence.OneToMany;
 public class CompanhiaAerea implements Cadastro, Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "companhia_gen")
+    @SequenceGenerator(name = "companhia_gen", sequenceName = "companhia_seq", initialValue = 1)
     private long id;
     
     private String nome;

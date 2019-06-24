@@ -27,7 +27,9 @@ public class JpaDAO<T extends Cadastro> implements DAO<T> {
 
     @Override
     public void save(T entity) {
-        em.persist(entity);
+        if(entity.getId() == 0)
+            em.persist(entity);
+        else em.merge(entity);
     }
 
     @Override
@@ -44,4 +46,7 @@ public class JpaDAO<T extends Cadastro> implements DAO<T> {
         return query.getSingleResult();
     }
 
+    public EntityManager getEm() {
+        return em;
+    }
 }

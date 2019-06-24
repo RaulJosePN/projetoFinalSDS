@@ -17,8 +17,8 @@ INSERT INTO aviao (id, qtdpassageiros) VALUES (2, 55);
 INSERT INTO companhiaaerea (id, nome) VALUES (1, 'All Might');
 INSERT INTO companhiaaerea (id, nome) VALUES (2, 'Endevor');
 
-INSERT INTO voo (id, datahorachegada, datahorapartida, numerovoo, preco, aviao_id, cidadedestino_id, cidadeorigem_id, companhia_id, piloto_id) VALUES (1, 'DATA: 2019/07/07 - HORA: 12:30', 'DATA: 2019/07/07 - HORA: 14:50', '032', 250.00, 1, 3, 1, 1, 1);
+INSERT INTO voo (datachegada, datapartida, numerovoo, preco, aviao_id, cidadedestino_id, cidadeorigem_id, companhia_id, piloto_id) VALUES ('2019/07/07', '2019/07/08', '032', 250.00, 1, 3, 1, 1, 1);
 
-INSERT INTO voo (id, datahorachegada, datahorapartida, numerovoo, preco, aviao_id, cidadedestino_id, cidadeorigem_id, companhia_id, piloto_id) VALUES (2, 'DATA: 2019/07/08 - HORA: 13:30', 'DATA: 2019/07/08 - HORA: 16:55', '033', 350.00, 2, 1, 2, 2, 2);
+INSERT INTO voo ( datachegada, datapartida, numerovoo, preco, aviao_id, cidadedestino_id, cidadeorigem_id, companhia_id, piloto_id) VALUES ('2019/07/08', '2019/07/09', '033', 350.00, 2, 1, 2, 2, 2);
 
-INSERT INTO voo (id, datahorachegada, datahorapartida, numerovoo, preco, aviao_id, cidadedestino_id, cidadeorigem_id, companhia_id, piloto_id) VALUES (3, 'DATA: 2019/07/09 - HORA: 14:30', 'DATA: 2019/07/09 - HORA: 19:00', '034', 500.00, 1, 2, 3, 1, 3);
+INSERT INTO voo (datachegada, datapartida, numerovoo, preco, aviao_id, cidadedestino_id, cidadeorigem_id, companhia_id, piloto_id) VALUES ('2019/07/09', '2019/07/10', '034', 500.00, 1, 2, 3, 1, 3);

@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 
 /**
  *
@@ -21,7 +22,8 @@ public class Voo implements Cadastro, Serializable {
     private Cidade cidadeOrigem;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "voo_gen")
+    @SequenceGenerator(name = "voo_gen", sequenceName = "voo_seq", initialValue = 1)
     long id;
 
     @ManyToOne
@@ -33,9 +35,9 @@ public class Voo implements Cadastro, Serializable {
     @ManyToOne
     private CompanhiaAerea companhia;
 
-    private String dataHoraPartida;
+    private String dataPartida;
     private double preco;
-    private String dataHoraChegada;
+    private String dataChegada;
     private String numeroVoo;
 
     @Override
@@ -56,20 +58,20 @@ public class Voo implements Cadastro, Serializable {
         this.preco = preco;
     }
 
-    public String getDataHoraPartida() {
-        return dataHoraPartida;
+    public String getDataPartida() {
+        return dataPartida;
     }
 
-    public void setDataHoraPartida(String dataHoraPartida) {
-        this.dataHoraPartida = dataHoraPartida;
+    public void setDataPartida(String dataHoraPartida) {
+        this.dataPartida = dataHoraPartida;
     }
 
-    public String getDataHoraChegada() {
-        return dataHoraChegada;
+    public String getDataChegada() {
+        return dataChegada;
     }
 
-    public void setDataHoraChegada(String dataHoraChegada) {
-        this.dataHoraChegada = dataHoraChegada;
+    public void setDataChegada(String dataHoraChegada) {
+        this.dataChegada = dataHoraChegada;
     }
 
     public String getNumeroVoo() {

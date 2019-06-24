@@ -4,6 +4,7 @@ import dao.DAO;
 import dao.VooDAO;
 import java.util.List;
 import javax.inject.Inject;
+import javax.transaction.Transactional;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -20,6 +21,7 @@ import model.Voo;
  * @author raul
  */
 @Path("/voo")
+@Transactional
 public class VooResource {
 
 
@@ -35,13 +37,14 @@ public class VooResource {
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     public void update(Voo voo) {
-        Voo vooBuscado = dao.findById(voo.getId());
-        dao.save(vooBuscado);
+        dao.save(voo);
     }
 
     @DELETE
+    @Path("{idVoo}")
     @Consumes(MediaType.APPLICATION_JSON)
-    public boolean delete(Voo voo) {
+    public boolean delete(@PathParam("idVoo") long idVoo) {
+        Voo voo = dao.findById(idVoo);
         return dao.remove(voo);
     }
 
@@ -60,9 +63,9 @@ public class VooResource {
     }
 
     @GET
-    @Path("{idCidadeO}/{idCidadeD}/{data}/{preco}")
+    @Path("{idCidadeO}/{idCidadeD}/{data}/{precoMin}/{precoMax}")
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Voo> findByCidadeOrigemDestinoDataPreco(@PathParam("idCidadeO") long idCidadeO, @PathParam("idCidadeD") long idCidadeD, @PathParam("data") String data, @PathParam("preco") double preco) {
-        return dao.findByCidadeOrigemDestinoDataPreco(idCidadeO, idCidadeD, data, preco);
+    public List<Voo> findByCidadeOrigemDestinoDataPreco(@PathParam("idCidadeO") long idCidadeO, @PathParam("idCidadeD") long idCidadeD, @PathParam("data") String data, @PathParam("precoMin") double precoMin, @PathParam("precoMax") double precoMax) {
+        return dao.findByCidadeOrigemDestinoDataPreco(idCidadeO, idCidadeD, data, precoMin, precoMax);
     }
 }
