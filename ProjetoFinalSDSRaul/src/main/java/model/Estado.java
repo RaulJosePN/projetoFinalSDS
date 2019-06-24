@@ -53,10 +53,6 @@ public class Estado implements Cadastro, Serializable {
         this.uf = uf;
     }
 
-    public List<Cidade> getCidades() {
-        return cidades;
-    }
-
     public void setCidades(List<Cidade> cidades) {
         this.cidades = cidades;
     }
